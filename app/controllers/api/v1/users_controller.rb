@@ -11,13 +11,13 @@ class Api::V1::UsersController < ApplicationController
   end 
 
   def create
-    user = User.new(email: params['email'], password: params['password'])
+    user = User.new(email: params['email'])
     user.save
     render json: user
   end 
 
   def login
-    user = User.find_by(email: params['email'], password: params['password'])
+    user = User.find_by(email: params['email'])
         if user != nil
             render json: user
         else 
